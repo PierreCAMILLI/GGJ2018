@@ -15,16 +15,32 @@ public class Controls : SingletonBehaviour<Controls> {
     public class PlayerControls
     {
         [SerializeField]
-        KeyCode _leftKey;
+        string _horizontalAxis = "Horizontal";
+        [SerializeField]
+        string _verticalAxis = "Vertical";
 
-        public float Left
+        private float Right
         {
-            get { return Input.GetKey(_leftKey) ? 1.0f : 0f; }
+            get { return Input.GetAxis(_horizontalAxis); }
+        }
+        private float Up
+        {
+            get { return Input.GetAxis(_verticalAxis); }
+        }
+        public Vector2 Direction
+        {
+            get { return new Vector2(Right, Up).normalized; }
         }
 
-        public bool Jump
+        public bool JumpDown
         {
-            get { return Input.GetKey(KeyCode.UpArrow); }
+            get { return false; }
         }
+
+        public bool TransfertDown
+        {
+            get { return false; }
+        }
+
     }
 }
