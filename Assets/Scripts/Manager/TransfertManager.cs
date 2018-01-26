@@ -53,6 +53,8 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
         } else {
             _counter = Mathf.Clamp(_counter + (Time.unscaledDeltaTime * _BulletTimeFill), 0f, 1f);
         }
-
+        if (_counter == 0) {
+            _bulletTimeIsActive = false;
+        }
     }
 }
