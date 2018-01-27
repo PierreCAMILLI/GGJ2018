@@ -18,12 +18,14 @@ public class Controls : SingletonBehaviour<Controls> {
         string _horizontalAxis = "Horizontal";
         [SerializeField]
         string _verticalAxis = "Vertical";
+        [SerializeField]
+        KeyCode _jumpKeycode = KeyCode.JoystickButton0;
 
-        private float Right
+        public float Right
         {
             get { return Input.GetAxis(_horizontalAxis); }
         }
-        private float Up
+        public float Up
         {
             get { return Input.GetAxis(_verticalAxis); }
         }
@@ -34,7 +36,7 @@ public class Controls : SingletonBehaviour<Controls> {
 
         public bool JumpDown
         {
-            get { return false; }
+            get { return Input.GetKeyDown(_jumpKeycode); }
         }
 
         public bool TransfertDown

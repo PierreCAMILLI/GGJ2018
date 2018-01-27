@@ -24,6 +24,18 @@ public class Character : MonoBehaviour {
     }
 
     [SerializeField]
+    private SpriteBounds _spriteBounds;
+    public SpriteBounds SpriteBounds
+    {
+        get
+        {
+            if (_spriteBounds == null)
+                _spriteBounds = GetComponent<SpriteBounds>();
+            return _spriteBounds;
+        }
+    }
+
+    [SerializeField]
     private Transform _raycastOrigin;
 
     [SerializeField]
@@ -31,8 +43,7 @@ public class Character : MonoBehaviour {
 
     public bool TouchGround
     {
-        // TODO: Check if character touches ground
-        get { return true; }
+        get { return SpriteBounds.DistanceFrom(SpriteBounds.Direction.Bottom) < 0.02f; ; }
     }
 
 #endregion
@@ -46,25 +57,33 @@ public class Character : MonoBehaviour {
     }
 
     [SerializeField]
-    private float _jumpPower;
+    private float _jumpPower = 1f;
     public float JumpPower
     {
         get { return _jumpPower; }
     }
+    [SerializeField]
+    private int _maxJump = 1;
+    public int MaxJump
+    {
+        get { return _maxJump; }
+    }
+    private int _jumpCount = 0;
     #endregion
 
 #region Actions
 
-    public void Walk(Vector2 dir, bool scaled = true)
+    public void Walk(float dir, bool scaled = true)
     {
-        transform.Translate(dir * (scaled ? Time.deltaTime : 1f));
+        transform.Translate(Vector2.right * _speed * dir * (scaled ? Time.deltaTime : 1f));
     }
 
     public void Jump()
     {
-        if (TouchGround)
+        if (_jumpCount < _maxJump)
         {
-            Rigidbody.AddForce(new Vector2(0f, JumpPower));
+            Rigidbody.AddForce(new Vector2(0f, JumpPower), ForceMode2D.Impulse);
+            ++_jumpCount;
         }
     }
 
@@ -96,7 +115,8 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (TouchGround)
+            _jumpCount = 0;
 	}
 #endregion
 }
