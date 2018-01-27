@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class TransfertManager : SingletonBehaviour<TransfertManager> {
+    [SerializeField]
     [Range(0f, 1f)]
     private float _counter = 0f;
 
@@ -16,6 +20,9 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
 
     [SerializeField]
     private float _Radius = 1f;
+
+    [SerializeField]
+    private Slider _slider;
 
     private bool _bulletTimeIsActive = false;
 
@@ -44,9 +51,10 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
         set { _Radius = value; }
     }
 
-    public void toggleBulletTime(bool state)
+    public bool ToggleBulletTime(bool state)
     {
         _bulletTimeIsActive = state && _counter == 1;
+        return _bulletTimeIsActive;
     }
 
     void Update()
@@ -55,12 +63,15 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
 
         if (_bulletTimeIsActive)
         {
-            _counter = Mathf.Clamp(_counter - (Time.unscaledDeltaTime * _BulletTimeEmpty), 0f, 1f);
+            _counter = Mathf.Clamp(_counter - (Time.fixedDeltaTime * (1f / _BulletTimeEmpty)), 0f, 1f);
         } else {
-            _counter = Mathf.Clamp(_counter + (Time.unscaledDeltaTime * _BulletTimeFill), 0f, 1f);
+            _counter = Mathf.Clamp(_counter + (Time.unscaledDeltaTime * (1f / _BulletTimeFill)), 0f, 1f);
         }
         if (_counter == 0) {
             _bulletTimeIsActive = false;
         }
+
+        if (_slider != null)
+            _slider.value = _counter;
     }
 }

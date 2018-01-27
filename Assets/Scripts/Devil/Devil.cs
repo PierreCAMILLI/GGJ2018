@@ -42,6 +42,11 @@ public class Devil : MonoBehaviour {
         Camera.main.transform.position = newPosition;
     }
 
+    public bool ToggleBulletTime(bool toggle)
+    {
+        return TransfertManager.Instance.ToggleBulletTime(toggle);
+    }
+
     public void ChangeBody(Vector2 dir)
     {
         if(_controlledCharacter != null)

@@ -26,15 +26,22 @@ public class DevilController : MonoBehaviour {
     {
         Controls.PlayerControls controls = Controls.Instance.Player();
 
+        if (controls.TransfertDown)
+        {
+            Devil.ToggleBulletTime(true);
+        }
         if (controls.Transfert)
         {
-            Devil.ControlledCharacter.Visual.ToggleLineRenderer(true);
+            bool isActive = TransfertManager.Instance.BulletTimeIsActive;
+            Devil.ControlledCharacter.Visual.ToggleLineRenderer(isActive);
             Devil.ControlledCharacter.Visual.SetLineDirection(controls.Direction);
         }
         if (controls.TransfertUp)
         {
             Devil.ControlledCharacter.Visual.ToggleLineRenderer(false);
-            Devil.ChangeBody(controls.Direction);
+            if(TransfertManager.Instance.BulletTimeIsActive)
+                Devil.ChangeBody(controls.Direction);
+            Devil.ToggleBulletTime(false);
         }   
 	}
 }
