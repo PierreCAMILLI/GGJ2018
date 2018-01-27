@@ -242,6 +242,16 @@ Prefab:
       propertyPath: refillingCounter.fill.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114377326306085672, guid: df715c67ca8105c4a9512557c1ac661e,
+        type: 2}
+      propertyPath: _BulletTimeFill
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114377326306085672, guid: df715c67ca8105c4a9512557c1ac661e,
+        type: 2}
+      propertyPath: _BulletTimeEmpty
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df715c67ca8105c4a9512557c1ac661e, type: 2}
   m_IsPrefabParent: 0
@@ -1185,7 +1195,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
