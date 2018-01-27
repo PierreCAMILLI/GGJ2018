@@ -381,6 +381,10 @@ Prefab:
       propertyPath: m_Name
       value: bouncyPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4631653538412448, guid: b7d84a21a0262ce4cb780a07f847ec4a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7d84a21a0262ce4cb780a07f847ec4a, type: 2}
   m_IsPrefabParent: 0
@@ -583,6 +587,10 @@ Prefab:
     - target: {fileID: 1068974534540580, guid: cdbbaece850d8f4468ff0409757bf1f6, type: 2}
       propertyPath: m_Name
       value: block (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326245398218232, guid: cdbbaece850d8f4468ff0409757bf1f6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdbbaece850d8f4468ff0409757bf1f6, type: 2}
@@ -828,7 +836,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
