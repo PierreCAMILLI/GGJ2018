@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TransfertManager : SingletonBehaviour<TransfertManager> {
+
     [SerializeField]
     [Range(0f, 1f)]
     private float _counter = 0f;
@@ -23,6 +24,18 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
 
     [SerializeField]
     private Slider _slider;
+
+    [System.Serializable]
+    public struct SliderColors
+    {
+        public Color background, fill;
+    }
+
+    [SerializeField]
+    private Image _backgroundSlider, _fillSlider;
+
+    [SerializeField]
+    private SliderColors emptyingCounter, fullCounter, refillingCounter;
 
     private bool _bulletTimeIsActive = false;
 
@@ -72,6 +85,24 @@ public class TransfertManager : SingletonBehaviour<TransfertManager> {
         }
 
         if (_slider != null)
+        {
             _slider.value = _counter;
+
+            SliderColors col;
+            if (_bulletTimeIsActive)
+            {
+                col = emptyingCounter;
+            }
+            else if(_counter == 1f)
+            {
+                col = fullCounter;
+            }
+            else
+            {
+                col = refillingCounter;
+            }
+            _backgroundSlider.color = col.background;
+            _fillSlider.color = col.fill;
+        }
     }
 }

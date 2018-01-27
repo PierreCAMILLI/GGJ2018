@@ -23,6 +23,8 @@ public class Controls : SingletonBehaviour<Controls> {
         KeyCode[] _jumpKeycode;
         [SerializeField]
         KeyCode[] _transferKeycode;
+        [SerializeField]
+        private KeyCode[] _reset;
 
         Vector2 _lastDirection;
 
@@ -62,6 +64,11 @@ public class Controls : SingletonBehaviour<Controls> {
         public bool TransfertUp
         {
             get { return _transferKeycode.Any(x => Input.GetKeyUp(x)); }
+        }
+
+        public bool ResetUp
+        {
+            get { return _reset.Any(x => Input.GetKeyUp(x)); }
         }
 
         public void Update()

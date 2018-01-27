@@ -53,6 +53,8 @@ public class DevilController : MonoBehaviour {
             if(TransfertManager.Instance.BulletTimeIsActive)
                 Devil.ChangeBody(_transferDirection);
             Devil.ToggleBulletTime(false);
-        }   
-	}
+        }
+        if (controls.ResetUp)
+            GameManager.Instance.ResetScene();
+    }
 }
