@@ -212,7 +212,7 @@ MonoBehaviour:
   - _horizontalAxis: Horizontal
     _verticalAxis: Vertical
     _jumpKeycode: 200000004a010000
-    _transferKeycode: 610000004b010000
+    _transferKeycode: 650000004b010000
 --- !u!114 &364431833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,7 +989,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1688838981
+  randomSeed: -723182714
   InitialModule:
     serializedVersion: 3
     enabled: 1
