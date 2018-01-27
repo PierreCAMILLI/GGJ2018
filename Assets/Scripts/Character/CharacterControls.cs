@@ -25,6 +25,28 @@ public class CharacterControls : MonoBehaviour {
     }
 
     [SerializeField]
+    private bool _runner = false;
+    public bool Runner
+    {
+        get { return _runner; }
+        set { _runner = value; }
+    }
+
+    public enum Direction
+    {
+        LEFT,
+        RIGHT
+    }
+
+    [SerializeField]
+    private Direction _runnerDirection = Direction.RIGHT;
+    public Direction RunnerDirection
+    {
+        get { return _runnerDirection; }
+        set { _runnerDirection = value; }
+    }
+
+    [SerializeField]
     private bool _canJump = true;
     public bool CanJump
     {
@@ -37,9 +59,26 @@ public class CharacterControls : MonoBehaviour {
         Controls.PlayerControls controls = Controls.Instance.Player();
 
         if(_canWalk && !controls.Transfert)
-            Character.Walk(controls.Right);
+        {
+            if(_runner)
+                Character.Walk(controls.LastDirection.x);
+            else
+                Character.Walk(controls.Right);
+        }   
 
         if (_canJump && controls.JumpDown)
             Character.Jump();
 	}
+
+    private float DirectionToFloat(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.LEFT:
+                return 1f;
+            case Direction.RIGHT:
+                return -1f;
+        }
+        return 0f;
+    }
 }

@@ -30,11 +30,11 @@ public class Controls : SingletonBehaviour<Controls> {
 
         public float Right
         {
-            get { return Input.GetAxis(_horizontalAxis); }
+            get { return Input.GetAxisRaw(_horizontalAxis); }
         }
         public float Up
         {
-            get { return Input.GetAxis(_verticalAxis); }
+            get { return Input.GetAxisRaw(_verticalAxis); }
         }
         public Vector2 Direction
         {
