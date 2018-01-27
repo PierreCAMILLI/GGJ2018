@@ -16,33 +16,42 @@ public class DevilController : MonoBehaviour {
         }
     }
 
-    private Vector2 _lastDirection;
+    [SerializeField]
+    private bool _autoLock = true;
 
-	// Use this for initialization
-	void Start () {
-        _lastDirection = Vector2.right;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    Vector2 _transferDirection;
+
+    // Update is called once per frame
+    void Update ()
     {
         Controls.PlayerControls controls = Controls.Instance.Player();
 
         if (controls.TransfertDown)
         {
             Devil.ToggleBulletTime(true);
+            Character closestCharacter = null;
+            if (_autoLock && (closestCharacter = Devil.ControlledCharacter.GetClosestCharacter(TransfertManager.Instance.Radius)))
+            {
+                _transferDirection = closestCharacter.transform.position - Devil.ControlledCharacter.RaycastOrigin.transform.position;
+            }
+            else
+            {
+                _transferDirection = controls.LastDirection;
+            }
         }
         if (controls.Transfert)
         {
+            if (controls.Direction != Vector2.zero)
+                _transferDirection = controls.LastDirection;
             bool isActive = TransfertManager.Instance.BulletTimeIsActive;
             Devil.ControlledCharacter.Visual.ToggleLineRenderer(isActive);
-            Devil.ControlledCharacter.Visual.SetLineDirection(controls.LastDirection);
+            Devil.ControlledCharacter.Visual.SetLineDirection(_transferDirection);
         }
         if (controls.TransfertUp)
         {
             Devil.ControlledCharacter.Visual.ToggleLineRenderer(false);
             if(TransfertManager.Instance.BulletTimeIsActive)
-                Devil.ChangeBody(controls.LastDirection);
+                Devil.ChangeBody(_transferDirection);
             Devil.ToggleBulletTime(false);
         }   
 	}

@@ -56,6 +56,10 @@ public class Character : MonoBehaviour {
 
     [SerializeField]
     private Transform _raycastOrigin;
+    public Transform RaycastOrigin
+    {
+        get { return _raycastOrigin; }
+    }
 
     [SerializeField]
     private LayerMask _characterLayer;
@@ -129,6 +133,24 @@ public class Character : MonoBehaviour {
             }
         }
         return character;
+    }
+
+    public Character GetClosestCharacter(float radius)
+    {
+        Character closestCharacter = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_raycastOrigin.position, radius, _characterLayer);
+        float minDistance = Mathf.Infinity;
+        foreach(Collider2D collider in colliders)
+        {
+            Character tmpCharacter = null;
+            float sqrMagnitude = Vector2.SqrMagnitude((Vector2)(transform.position - collider.transform.position));
+            if ((sqrMagnitude < minDistance) && (tmpCharacter = collider.GetComponent<Character>()) && (tmpCharacter != this))
+            {
+                closestCharacter = tmpCharacter;
+                minDistance = sqrMagnitude;
+            }
+        }
+        return closestCharacter;
     }
 
 #endregion
