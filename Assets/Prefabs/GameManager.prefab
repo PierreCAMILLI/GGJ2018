@@ -63,7 +63,7 @@ MonoBehaviour:
   _backgroundSlider: {fileID: 0}
   _fillSlider: {fileID: 0}
   emptyingCounter:
-    background: {r: 0, g: 0, b: 0, a: 0}
+    background: {r: 1, g: 0.5019608, b: 0, a: 1}
     fill: {r: 0, g: 0, b: 0, a: 0}
   fullCounter:
     background: {r: 0, g: 0, b: 0, a: 0}
@@ -100,4 +100,4 @@ MonoBehaviour:
     _verticalAxis: Vertical
     _jumpKeycode: 200000004a010000
     _transferKeycode: 650000004b010000
-    _reset: 
+    _reset: 720000004c010000
