@@ -11,29 +11,9 @@ public class GameManager : SingletonBehaviour<GameManager> {
     {
         get { return _level; }
     }
-    
 
-    [System.Serializable]
-    public class TransfertManager
+	public void ResetScene()
     {
-        private float _counter;
-        public float Counter
-        {
-            get { return _counter; }
-            set { _counter = value; }
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    [SerializeField]
-    private KeyCode[] reset; 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (reset.Any(x => Input.GetKeyDown(x)))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
 }

@@ -16,14 +16,30 @@ public class CharacterControls : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
+    [SerializeField]
+    private bool _canWalk = true;
+    public bool CanWalk
+    {
+        get { return _canWalk; }
+        set { _canWalk = value; }
+    }
+
+    [SerializeField]
+    private bool _canJump = true;
+    public bool CanJump
+    {
+        get { return _canJump; }
+        set { _canJump = value; }
+    }
+
+    // Update is called once per frame
+    void Update () {
         Controls.PlayerControls controls = Controls.Instance.Player();
 
-        if(!controls.Transfert)
+        if(_canWalk && !controls.Transfert)
             Character.Walk(controls.Right);
 
-        if (controls.JumpDown)
+        if (_canJump && controls.JumpDown)
             Character.Jump();
 	}
 }

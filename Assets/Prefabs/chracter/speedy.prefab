@@ -169,9 +169,9 @@ MonoBehaviour:
   _characterLayer:
     serializedVersion: 2
     m_Bits: 65536
-  _speed: 4
+  _speed: 2000
   _jumpPower: 10
-  _maxJump: 2
+  _maxJump: 1
 --- !u!114 &114671439200662948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,6 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 0}
+  _canWalk: 1
+  _canJump: 1
 --- !u!114 &114965213601238242
 MonoBehaviour:
   m_ObjectHideFlags: 1

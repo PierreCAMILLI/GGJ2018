@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Devil : MonoBehaviour {
+public class Devil : SingletonBehaviour<Devil> {
 
     [SerializeField]
     private Transform _visual;
