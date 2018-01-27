@@ -20,7 +20,8 @@ public class CharacterControls : MonoBehaviour {
 	void Update () {
         Controls.PlayerControls controls = Controls.Instance.Player();
 
-        Character.Walk(controls.Right);
+        if(!controls.Transfert)
+            Character.Walk(controls.Right);
 
         if (controls.JumpDown)
             Character.Jump();

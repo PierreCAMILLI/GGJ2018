@@ -20,6 +20,8 @@ public class Controls : SingletonBehaviour<Controls> {
         string _verticalAxis = "Vertical";
         [SerializeField]
         KeyCode _jumpKeycode = KeyCode.JoystickButton0;
+        [SerializeField]
+        KeyCode _transferKeycode = KeyCode.JoystickButton1;
 
         public float Right
         {
@@ -41,7 +43,17 @@ public class Controls : SingletonBehaviour<Controls> {
 
         public bool TransfertDown
         {
-            get { return false; }
+            get { return Input.GetKeyDown(_transferKeycode); }
+        }
+
+        public bool Transfert
+        {
+            get { return Input.GetKey(_transferKeycode); }
+        }
+
+        public bool TransfertUp
+        {
+            get { return Input.GetKeyUp(_transferKeycode); }
         }
 
     }

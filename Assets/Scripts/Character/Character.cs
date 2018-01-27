@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    private static Character ControlledCharacter
-    {
-        get { return null; }
-    }
-
     #region Getter
 
     [SerializeField]
@@ -20,6 +15,30 @@ public class Character : MonoBehaviour {
             if (_rigidbody == null)
                 _rigidbody = GetComponent<Rigidbody2D>();
             return _rigidbody;
+        }
+    }
+
+    [SerializeField]
+    private CharacterVisual _visual;
+    public CharacterVisual Visual
+    {
+        get
+        {
+            if (_visual == null)
+                _visual = GetComponentInChildren<CharacterVisual>();
+            return _visual;
+        }
+    }
+
+    [SerializeField]
+    private CharacterControls _characterControls;
+    public CharacterControls CharacterControls
+    {
+        get
+        {
+            if (_characterControls == null)
+                _characterControls = GetComponent<CharacterControls>();
+            return _characterControls;
         }
     }
 
@@ -96,10 +115,17 @@ public class Character : MonoBehaviour {
     public Character TargetCharacter(Vector2 dir, float radius)
     {
         Character character = null;
-        RaycastHit2D hit;
-        if (hit = Physics2D.Raycast(_raycastOrigin.position, dir, radius, _characterLayer))
+        RaycastHit2D[] hits;
+        hits = Physics2D.RaycastAll(_raycastOrigin.position, dir, radius, _characterLayer);
+        float minDist = Mathf.Infinity;
+        foreach(RaycastHit2D hit in hits)
         {
-            character = hit.transform.GetComponent<Character>();
+            Character tempCharacter = hit.transform.GetComponent<Character>();
+            if(tempCharacter != null && tempCharacter != this && hit.distance < minDist)
+            {
+                character = tempCharacter;
+                minDist = hit.distance;
+            }
         }
         return character;
     }
