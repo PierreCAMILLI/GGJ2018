@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class SpriteBounds : MonoBehaviour {
 
     private SpriteRenderer _spriteRenderer;
@@ -13,6 +13,17 @@ public class SpriteBounds : MonoBehaviour {
             if (_spriteRenderer == null)
                 _spriteRenderer = GetComponent<SpriteRenderer>();
             return _spriteRenderer;
+        }
+    }
+
+    private BoxCollider2D _boxCollider;
+    public BoxCollider2D boxCollider
+    {
+        get
+        {
+            if (_boxCollider == null)
+                _boxCollider = GetComponent<BoxCollider2D>();
+            return _boxCollider;
         }
     }
 
@@ -57,7 +68,7 @@ public class SpriteBounds : MonoBehaviour {
     private void GetBoundStartAndEnd(Direction direction, out Vector2 start, out Vector2 end, out Vector2 dir)
     {
         start = Vector2.zero; end = Vector2.zero; dir = Vector2.zero;
-        Bounds rect = spriteRenderer.sprite.bounds;
+        Bounds rect = boxCollider.bounds;
         switch (direction)
         {
             case Direction.Bottom:
@@ -81,8 +92,8 @@ public class SpriteBounds : MonoBehaviour {
                 dir = Vector2.up;
                 break;
         }
-        start += (Vector2) transform.position;
-        end += (Vector2) transform.position;
+        //start += (Vector2) transform.position;
+        //end += (Vector2) transform.position;
     }
 
     private Vector2[] GetPoints(Direction direction, out Vector2 dir)

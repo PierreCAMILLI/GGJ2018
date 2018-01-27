@@ -92,13 +92,19 @@ public class Character : MonoBehaviour {
         get { return _maxJump; }
     }
     private int _jumpCount = 0;
+
+    private float _rightWalkDistance = 0f;
+    public float RightWalkDistance
+    {
+        get { return _rightWalkDistance; }
+    }
     #endregion
 
 #region Actions
 
     public void Walk(float dir, bool scaled = true)
     {
-        transform.Translate(Vector2.right * _speed * dir * (scaled ? Time.deltaTime : 1f));
+        _rightWalkDistance = _speed * dir * (scaled ? Time.deltaTime : 1f);
     }
 
     public void Jump()
@@ -167,16 +173,17 @@ public class Character : MonoBehaviour {
 #endregion
 
 
-    #region Unity Functions
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+    #region Unity Functions	
 	// Update is called once per frame
 	void Update () {
         if (TouchGround)
             _jumpCount = 0;
-	}
-#endregion
+    }
+
+    private void LateUpdate()
+    {
+        transform.Translate(Vector2.right * _rightWalkDistance);
+        _rightWalkDistance = 0f;
+    }
+    #endregion
 }

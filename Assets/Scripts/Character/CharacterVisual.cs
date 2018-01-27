@@ -5,6 +5,42 @@ using UnityEngine;
 public class CharacterVisual : MonoBehaviour {
 
     [SerializeField]
+    private Character _character;
+    public Character Character
+    {
+        get
+        {
+            if (_character == null)
+                _character = GetComponentInParent<Character>();
+            return _character;
+        }
+    }
+
+    [SerializeField]
+    private Animator _animator;
+    public Animator Animator
+    {
+        get
+        {
+            if (_animator == null)
+                _animator = GetComponent<Animator>();
+            return _animator;
+        }
+    }
+
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer SpriteRenderer
+    {
+        get
+        {
+            if (_spriteRenderer == null)
+                _spriteRenderer = GetComponent<SpriteRenderer>();
+            return _spriteRenderer;
+        }
+    }
+
+    [SerializeField]
     private Transform _head;
 
     [SerializeField]
@@ -30,13 +66,19 @@ public class CharacterVisual : MonoBehaviour {
         LineRenderer.SetPosition(0, direction.normalized * TransfertManager.Instance.Radius);
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void SetFloat(string name, float value)
+    {
+        if(Animator != null)
+            Animator.SetFloat(name, value);
+    }
+
+    private void Update()
+    {
+        SetFloat("Walk", Mathf.Abs(Character.RightWalkDistance));
+        if (Character.RightWalkDistance > 0f)
+            SpriteRenderer.flipX = false;
+        else if (Character.RightWalkDistance < 0f)
+            SpriteRenderer.flipX = true;
+    }
+
 }

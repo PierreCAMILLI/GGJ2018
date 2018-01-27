@@ -673,6 +673,11 @@ Prefab:
       propertyPath: _controlledCharacter
       value: 
       objectReference: {fileID: 1171303738}
+    - target: {fileID: 114965184322390890, guid: d08c83d5989ab79489fcc1bf8765262c,
+        type: 2}
+      propertyPath: _smoothTime
+      value: 0.125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08c83d5989ab79489fcc1bf8765262c, type: 2}
   m_IsPrefabParent: 0
