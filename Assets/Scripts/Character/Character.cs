@@ -111,6 +111,17 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public void Jump(float right)
+    {
+        if (_jumpCount < _maxJump)
+        {
+            Vector2 dir = new Vector2(right, 1f).normalized * JumpPower;
+            Rigidbody.AddForce(dir, ForceMode2D.Impulse);
+            transform.Translate(0.0f, 0.03f, 0.0f);
+            ++_jumpCount;
+        }
+    }
+
     /// <summary>
     /// Returns close character
     /// </summary>
