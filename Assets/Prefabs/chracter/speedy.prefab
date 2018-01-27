@@ -169,7 +169,7 @@ MonoBehaviour:
   _characterLayer:
     serializedVersion: 2
     m_Bits: 65536
-  _speed: 2000
+  _speed: 12
   _jumpPower: 10
   _maxJump: 1
 --- !u!114 &114671439200662948
