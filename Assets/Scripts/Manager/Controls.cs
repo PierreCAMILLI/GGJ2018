@@ -24,6 +24,8 @@ public class Controls : SingletonBehaviour<Controls> {
         [SerializeField]
         KeyCode[] _transferKeycode;
 
+        Vector2 _lastDirection;
+
         public float Right
         {
             get { return Input.GetAxis(_horizontalAxis); }
@@ -35,6 +37,11 @@ public class Controls : SingletonBehaviour<Controls> {
         public Vector2 Direction
         {
             get { return new Vector2(Right, Up).normalized; }
+        }
+
+        public Vector2 LastDirection
+        {
+            get { return _lastDirection; }
         }
 
         public bool JumpDown
@@ -56,5 +63,18 @@ public class Controls : SingletonBehaviour<Controls> {
         {
             get { return _transferKeycode.Any(x => Input.GetKeyUp(x)); }
         }
+
+        public void Update()
+        {
+            if (Direction != Vector2.zero)
+                _lastDirection = Direction;
+            else if (_lastDirection == Vector2.zero)
+                _lastDirection = Vector2.right;
+        }
+    }
+
+    void Update()
+    {
+        _players.ForEach(p => p.Update());
     }
 }

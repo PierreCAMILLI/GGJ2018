@@ -102,6 +102,7 @@ public class Character : MonoBehaviour {
         if (_jumpCount < _maxJump)
         {
             Rigidbody.AddForce(new Vector2(0f, JumpPower), ForceMode2D.Impulse);
+            transform.Translate(0.0f, 0.03f, 0.0f);
             ++_jumpCount;
         }
     }

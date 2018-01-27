@@ -16,9 +16,11 @@ public class DevilController : MonoBehaviour {
         }
     }
 
+    private Vector2 _lastDirection;
+
 	// Use this for initialization
 	void Start () {
-		
+        _lastDirection = Vector2.right;
 	}
 	
 	// Update is called once per frame
@@ -34,13 +36,13 @@ public class DevilController : MonoBehaviour {
         {
             bool isActive = TransfertManager.Instance.BulletTimeIsActive;
             Devil.ControlledCharacter.Visual.ToggleLineRenderer(isActive);
-            Devil.ControlledCharacter.Visual.SetLineDirection(controls.Direction);
+            Devil.ControlledCharacter.Visual.SetLineDirection(controls.LastDirection);
         }
         if (controls.TransfertUp)
         {
             Devil.ControlledCharacter.Visual.ToggleLineRenderer(false);
             if(TransfertManager.Instance.BulletTimeIsActive)
-                Devil.ChangeBody(controls.Direction);
+                Devil.ChangeBody(controls.LastDirection);
             Devil.ToggleBulletTime(false);
         }   
 	}
