@@ -3,15 +3,21 @@
 public class TransfertManager : SingletonBehaviour<TransfertManager> {
     [Range(0f, 1f)]
     private float _counter = 0f;
+
     [Range(0f, 1f)]
+    [SerializeField]
     private float _BulletTimeSpeed = 0f;
-    private bool _bulletTimeIsActive = false;
+
     [SerializeField]
     private float _BulletTimeFill = 1f;
+
     [SerializeField]
     private float _BulletTimeEmpty = 2f;
+
     [SerializeField]
     private float _Radius = 1f;
+
+    private bool _bulletTimeIsActive = false;
 
     public float Counter
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
   _players:
   - _horizontalAxis: Horizontal
     _verticalAxis: Vertical
-    _jumpKeycode: 330
-    _transferKeycode: 331
+    _jumpKeycode: 200000004a010000
+    _transferKeycode: 610000004b010000
 --- !u!114 &364431833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
+  _BulletTimeSpeed: 0
   _BulletTimeFill: 2
   _BulletTimeEmpty: 3
   _Radius: 7
@@ -470,7 +471,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &978680769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -594,7 +595,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1000107021
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -988,7 +989,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1058830050
+  randomSeed: -1688838981
   InitialModule:
     serializedVersion: 3
     enabled: 1

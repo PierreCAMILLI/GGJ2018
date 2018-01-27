@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Controls : SingletonBehaviour<Controls> {
@@ -19,9 +20,9 @@ public class Controls : SingletonBehaviour<Controls> {
         [SerializeField]
         string _verticalAxis = "Vertical";
         [SerializeField]
-        KeyCode _jumpKeycode = KeyCode.JoystickButton0;
+        KeyCode[] _jumpKeycode;
         [SerializeField]
-        KeyCode _transferKeycode = KeyCode.JoystickButton1;
+        KeyCode[] _transferKeycode;
 
         public float Right
         {
@@ -38,23 +39,22 @@ public class Controls : SingletonBehaviour<Controls> {
 
         public bool JumpDown
         {
-            get { return Input.GetKeyDown(_jumpKeycode); }
+            get { return _jumpKeycode.Any(x => Input.GetKeyDown(x)); }
         }
 
         public bool TransfertDown
         {
-            get { return Input.GetKeyDown(_transferKeycode); }
+            get { return _transferKeycode.Any(x => Input.GetKeyDown(x)); }
         }
 
         public bool Transfert
         {
-            get { return Input.GetKey(_transferKeycode); }
+            get { return _transferKeycode.Any(x => Input.GetKey(x)); }
         }
 
         public bool TransfertUp
         {
-            get { return Input.GetKeyUp(_transferKeycode); }
+            get { return _transferKeycode.Any(x => Input.GetKeyUp(x)); }
         }
-
     }
 }
