@@ -24,7 +24,7 @@ public class Toasty : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector3.SmoothDamp(transform.position, _target, ref _velocity, 0.5f, Mathf.Infinity, Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, _target, ref _velocity, 0.25f, Mathf.Infinity, Time.deltaTime);
 	}
 
     public void Show()
