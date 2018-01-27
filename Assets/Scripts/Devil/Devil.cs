@@ -66,6 +66,10 @@ public class Devil : SingletonBehaviour<Devil> {
                 controller.enabled = true;
             }
         }
+        
+    }
+    private void IsAlive()
+    {
         if (isAlive == false)
         {
             Debug.Log("controll undone");
