@@ -55,6 +55,24 @@ public class CharacterVisual : MonoBehaviour {
         }
     }
 
+    #region Variables
+
+    private float _rightWalkDistance;
+    public float RightWalkDistance
+    {
+        get { return _rightWalkDistance; }
+        set { _rightWalkDistance = value; }
+    }
+
+    private float _distanceFromBottom;
+    public float DistanceFromBottom
+    {
+        get { return _distanceFromBottom; }
+        set { _distanceFromBottom = value; }
+    }
+
+#endregion
+
     public void ToggleLineRenderer(bool toggle)
     {
         LineRenderer.enabled = toggle;
@@ -74,11 +92,16 @@ public class CharacterVisual : MonoBehaviour {
 
     private void Update()
     {
-        SetFloat("Walk", Mathf.Abs(Character.RightWalkDistance));
-        if (Character.RightWalkDistance > 0f)
-            SpriteRenderer.flipX = false;
-        else if (Character.RightWalkDistance < 0f)
-            SpriteRenderer.flipX = true;
+        if(SpriteRenderer != null)
+        {
+            SetFloat("Walk", Mathf.Abs(RightWalkDistance));
+            SetFloat("DistanceBottom", DistanceFromBottom);
+            if (RightWalkDistance > 0f)
+                SpriteRenderer.flipX = false;
+            else if (RightWalkDistance < 0f)
+                SpriteRenderer.flipX = true;
+        }
+        
     }
 
 }

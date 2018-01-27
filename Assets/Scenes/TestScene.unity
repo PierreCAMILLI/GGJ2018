@@ -4418,21 +4418,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114279877414938232, guid: c01468b38dabcf34ba4479b7c954fa98,
-        type: 2}
-      propertyPath: _maxJump
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114818173198408296, guid: c01468b38dabcf34ba4479b7c954fa98,
-        type: 2}
-      propertyPath: _runner
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279877414938232, guid: c01468b38dabcf34ba4479b7c954fa98,
-        type: 2}
-      propertyPath: _speed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c01468b38dabcf34ba4479b7c954fa98, type: 2}
   m_IsPrefabParent: 0

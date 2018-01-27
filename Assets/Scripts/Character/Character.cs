@@ -176,14 +176,19 @@ public class Character : MonoBehaviour {
     #region Unity Functions	
 	// Update is called once per frame
 	void Update () {
+        UpdateVisual();
+
         if (TouchGround)
             _jumpCount = 0;
-    }
 
-    private void LateUpdate()
-    {
         transform.Translate(Vector2.right * _rightWalkDistance);
         _rightWalkDistance = 0f;
+    }
+
+    void UpdateVisual()
+    {
+        Visual.RightWalkDistance = _rightWalkDistance;
+        Visual.DistanceFromBottom = SpriteBounds.DistanceFrom(SpriteBounds.Direction.Bottom);
     }
     #endregion
 }
