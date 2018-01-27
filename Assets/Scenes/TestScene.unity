@@ -204,9 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f24d61ec289ee43ad5230cef42860a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0, z: 0}
-  length: 5
-  speed: 1
 --- !u!212 &79530778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4425,6 +4422,16 @@ Prefab:
         type: 2}
       propertyPath: _maxJump
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114818173198408296, guid: c01468b38dabcf34ba4479b7c954fa98,
+        type: 2}
+      propertyPath: _runner
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279877414938232, guid: c01468b38dabcf34ba4479b7c954fa98,
+        type: 2}
+      propertyPath: _speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c01468b38dabcf34ba4479b7c954fa98, type: 2}
