@@ -54,12 +54,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
-  _counter: 0
+  _counter: 1
   _BulletTimeSpeed: 0.25
   _BulletTimeFill: 2
   _BulletTimeEmpty: 4
   _Radius: 7
   _slider: {fileID: 0}
+  _backgroundSlider: {fileID: 0}
+  _fillSlider: {fileID: 0}
+  emptyingCounter:
+    background: {r: 0, g: 0, b: 0, a: 0}
+    fill: {r: 0, g: 0, b: 0, a: 0}
+  fullCounter:
+    background: {r: 0, g: 0, b: 0, a: 0}
+    fill: {r: 0, g: 0, b: 0, a: 0}
+  refillingCounter:
+    background: {r: 0, g: 0, b: 0, a: 0}
+    fill: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114730405360177944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,3 +100,4 @@ MonoBehaviour:
     _verticalAxis: Vertical
     _jumpKeycode: 200000004a010000
     _transferKeycode: 650000004b010000
+    _reset: 
