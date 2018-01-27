@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonBehaviour<GameManager> {
 
@@ -9,6 +11,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
     {
         get { return _level; }
     }
+    
 
     [System.Serializable]
     public class TransfertManager
@@ -20,6 +23,8 @@ public class GameManager : SingletonBehaviour<GameManager> {
             set { _counter = value; }
         }
     }
+    [SerializeField]
+    private KeyCode[] reset; 
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +33,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (reset.Any(x => Input.GetKeyDown(x)))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

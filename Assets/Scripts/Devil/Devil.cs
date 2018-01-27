@@ -8,6 +8,9 @@ public class Devil : MonoBehaviour {
     private Transform _visual;
 
     [SerializeField]
+    private bool isAlive = true;
+
+    [SerializeField]
     private Character _controlledCharacter;
     public Character ControlledCharacter
     {
@@ -62,6 +65,12 @@ public class Devil : MonoBehaviour {
                 controller = _controlledCharacter.CharacterControls;
                 controller.enabled = true;
             }
+        }
+        if (isAlive == false)
+        {
+            Debug.Log("controll undone");
+            CharacterControls controller = _controlledCharacter.CharacterControls;
+            controller.enabled = false;
         }
     }
 }
