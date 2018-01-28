@@ -15858,26 +15858,6 @@ Prefab:
       propertyPath: m_Name
       value: jumper (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114868441564534910, guid: e4ce42e74001943479c8756b53efda7b,
-        type: 2}
-      propertyPath: _speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114868441564534910, guid: e4ce42e74001943479c8756b53efda7b,
-        type: 2}
-      propertyPath: _maxJump
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114868441564534910, guid: e4ce42e74001943479c8756b53efda7b,
-        type: 2}
-      propertyPath: _jumpPower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 212900570061188396, guid: e4ce42e74001943479c8756b53efda7b,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4ce42e74001943479c8756b53efda7b, type: 2}
   m_IsPrefabParent: 0
