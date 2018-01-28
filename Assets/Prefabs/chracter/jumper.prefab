@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4635691902851098}
-  - component: {fileID: 212791788696621696}
   - component: {fileID: 61929011521531750}
   - component: {fileID: 50388089136621260}
   - component: {fileID: 114508448586138148}
@@ -40,7 +39,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4140427442092424}
+  - component: {fileID: 212900570061188396}
   - component: {fileID: 114443531370084516}
+  - component: {fileID: 95968814180685156}
   m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
@@ -148,8 +149,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3.39}
   m_EdgeRadius: 0
+--- !u!95 &95968814180685156
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722923472862130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 8cf35caa56dbd1b4999e9607e70ea387, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114443531370084516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ec79387a5be7943befe788cb1b2243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _character: {fileID: 114868441564534910}
+  _animator: {fileID: 95968814180685156}
+  _spriteRenderer: {fileID: 212900570061188396}
   _head: {fileID: 4975959018730772}
   _lineRenderer: {fileID: 120240467829562776}
 --- !u!114 &114468181461393838
@@ -176,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 0}
   _canWalk: 1
+  _runner: 0
+  _runnerDirection: 1
   _canJump: 1
 --- !u!114 &114508448586138148
 MonoBehaviour:
@@ -212,8 +235,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   _speed: 6
-  _jumpPower: 14
-  _maxJump: 3
+  _jumpPower: 10
+  _maxJump: 1
 --- !u!120 &120240467829562776
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -302,12 +325,12 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!212 &212791788696621696
+--- !u!212 &212900570061188396
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1020144352081562}
+  m_GameObject: {fileID: 1722923472862130}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -336,8 +359,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97c8f38dbf0c2b944a072226c9439d0b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.13103461, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d2041535f5e314e48be75d389ae77289, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

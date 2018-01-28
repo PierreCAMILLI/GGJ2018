@@ -104,18 +104,8 @@ public class Character : MonoBehaviour {
 
     public void Walk(float dir, bool scaled = true)
     {
-        float dist = _speed * dir * (scaled ? Time.deltaTime : 1f);
+        float dist = _speed * dir;
 
-        //if (dist == 0f)
-        //    return;
-
-        //float distObstacle = SpriteBounds.DistanceFrom(dist > 0f ? SpriteBounds.Direction.Right : SpriteBounds.Direction.Left);
-
-        //dist = Mathf.Min(dist, distObstacle);
-
-        //transform.Translate(Vector2.right * dist);
-        //Rigidbody.position += (Vector2.right * dist);
-        //Rigidbody.MovePosition((Vector2)transform.position + Vector2.right * dist);
         Vector2 velocity = Rigidbody.velocity;
         velocity.x = _speed * dir;
         Rigidbody.velocity = velocity;

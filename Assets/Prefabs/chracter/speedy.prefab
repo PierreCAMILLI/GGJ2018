@@ -201,9 +201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ec79387a5be7943befe788cb1b2243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 0}
-  _animator: {fileID: 0}
-  _spriteRenderer: {fileID: 0}
+  _character: {fileID: 114279877414938232}
+  _animator: {fileID: 95863139520513802}
+  _spriteRenderer: {fileID: 212022501838514278}
   _head: {fileID: 4346873971026990}
   _lineRenderer: {fileID: 120132319247891168}
 --- !u!114 &114818173198408296
