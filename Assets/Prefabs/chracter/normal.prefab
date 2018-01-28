@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682211399691520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7, y: 2, z: 0}
+  m_LocalPosition: {x: -11, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4846481417800574}
@@ -187,7 +187,7 @@ MonoBehaviour:
   _characterLayer:
     serializedVersion: 2
     m_Bits: 65536
-  _speed: 4
+  _speed: 12
   _jumpPower: 10
   _maxJump: 1
 --- !u!114 &114503395208476566
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682211399691520}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21a534d30cb7f5d48914ba1f9e028e67, type: 3}
   m_Name: 
@@ -270,7 +270,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -358,7 +358,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 95e9da33631eece4c97035604d5c522d, type: 3}
   m_Color: {r: 0.58823526, g: 0.58823526, b: 0.58823526, a: 1}
   m_FlipX: 0
