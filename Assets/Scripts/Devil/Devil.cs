@@ -32,7 +32,7 @@ public class Devil : SingletonBehaviour<Devil> {
         CenterCamera();
 		if(_controlledCharacter != null)
         {
-            transform.position = Vector2.SmoothDamp(transform.position, _controlledCharacter.transform.position, ref _velocity, _smoothTime, Mathf.Infinity, Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position, _controlledCharacter.RaycastOrigin.transform.position, ref _velocity, _smoothTime, Mathf.Infinity, Time.deltaTime);
             //float sqrMagnitude = Vector2.SqrMagnitude(transform.position - _controlledCharacter.transform.position);
             //_visual.gameObject.SetActive(sqrMagnitude > 2f);
         }
