@@ -101,7 +101,8 @@ public class CharacterVisual : MonoBehaviour {
             else if (RightWalkDistance < 0f)
                 SpriteRenderer.flipX = true;
         }
-        
+
+        RightWalkDistance = 0f;
     }
 
 }

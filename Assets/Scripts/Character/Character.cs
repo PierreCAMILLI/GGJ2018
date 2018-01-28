@@ -104,7 +104,23 @@ public class Character : MonoBehaviour {
 
     public void Walk(float dir, bool scaled = true)
     {
-        _rightWalkDistance = _speed * dir * (scaled ? Time.deltaTime : 1f);
+        float dist = _speed * dir * (scaled ? Time.deltaTime : 1f);
+
+        //if (dist == 0f)
+        //    return;
+
+        //float distObstacle = SpriteBounds.DistanceFrom(dist > 0f ? SpriteBounds.Direction.Right : SpriteBounds.Direction.Left);
+
+        //dist = Mathf.Min(dist, distObstacle);
+
+        //transform.Translate(Vector2.right * dist);
+        //Rigidbody.position += (Vector2.right * dist);
+        //Rigidbody.MovePosition((Vector2)transform.position + Vector2.right * dist);
+        Vector2 velocity = Rigidbody.velocity;
+        velocity.x = _speed * dir;
+        Rigidbody.velocity = velocity;
+
+        Visual.RightWalkDistance = dist;
     }
 
     public void Jump()
@@ -180,14 +196,10 @@ public class Character : MonoBehaviour {
 
         if (TouchGround)
             _jumpCount = 0;
-
-        transform.Translate(Vector2.right * _rightWalkDistance);
-        _rightWalkDistance = 0f;
     }
 
     void UpdateVisual()
     {
-        Visual.RightWalkDistance = _rightWalkDistance;
         Visual.DistanceFromBottom = SpriteBounds.DistanceFrom(SpriteBounds.Direction.Bottom);
     }
     #endregion
