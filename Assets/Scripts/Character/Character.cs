@@ -104,6 +104,9 @@ public class Character : MonoBehaviour {
 
     public void Walk(float dir, bool scaled = true)
     {
+        if (Rigidbody == null)
+            return;
+
         float dist = _speed * dir;
 
         Vector2 velocity = Rigidbody.velocity;
