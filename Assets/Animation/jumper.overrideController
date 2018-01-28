@@ -6,5 +6,11 @@ AnimatorOverrideController:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: jumper
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 765031d4fd2c7d245b56f210121c995f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a424e4c01630670438012a261cc9a144, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dc40ad3e54de62e428c0c09852354fa1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 97ac41cdeeac6794daaaf415af5a6d07, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3272075f5c57d2c48bac335a95d6fe3c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d0cf6c2279e6b1a4d969adf508cb7134, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5c6b9949209ceb7469d387e416a3925e, type: 2}
